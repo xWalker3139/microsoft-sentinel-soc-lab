@@ -57,6 +57,8 @@ AuditLogs
 | project TimeGenerated, OperationName, Result, InitiatedBy, TargetResources
 | order by TimeGenerated desc
 
+```
+
 ## Analytics Rule Configuration
 
 A custom scheduled analytics rule named **User Added to Security Group** was created in Microsoft Sentinel.
