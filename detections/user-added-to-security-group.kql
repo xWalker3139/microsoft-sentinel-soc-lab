@@ -1,0 +1,7 @@
+// Microsoft Sentinel Detection Rule
+// Detects successful or attempted Microsoft Entra ID group membership additions.
+
+AuditLogs
+| where OperationName == "Add member to group"
+| project TimeGenerated, OperationName, Result, InitiatedBy, TargetResources
+| order by TimeGenerated desc
