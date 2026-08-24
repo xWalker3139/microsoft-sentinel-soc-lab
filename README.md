@@ -74,6 +74,12 @@ The rule was configured with the following parameters:
 
 This configuration allows Microsoft Sentinel to periodically query Entra ID audit logs and automatically generate an alert when a group membership addition is detected.
 
+### Analytics Rule Evidence
+
+The screenshot below shows the enabled **User Added to Security Group** analytics rule in Microsoft Sentinel, including its severity, MITRE ATT&CK mapping, and KQL detection logic.
+
+![Microsoft Sentinel Analytics Rule](analytics-rule-enabled-redacted.png)
+
 ## Detection Validation
 
 To validate the detection pipeline, a test user was intentionally added to a Microsoft Entra ID security group.
@@ -114,6 +120,12 @@ The logs confirmed that the group membership modification was generated intentio
 
 No malicious activity was identified.
 
+### Investigation Evidence
+
+The underlying `AuditLogs` event was reviewed using KQL. The results confirmed a successful **Add member to group** operation and provided the initiating identity and affected resources used during triage.
+
+![Microsoft Sentinel KQL Investigation](kql-investigation-redacted.png)
+
 ## Incident Triage and Closure
 
 Following investigation, the incident was:
@@ -124,6 +136,12 @@ Following investigation, the incident was:
 - Changed from **New** to **Closed**.
 
 A second controlled group membership event also successfully triggered the analytics rule, demonstrating that the detection remained operational across repeated events.
+
+### Incident Closure Evidence
+
+After validating the activity as authorized lab behavior, the incident was documented and closed as **Benign Positive – Suspicious but expected**.
+
+![Microsoft Sentinel Incident Closure](incident-closed-redacted.png)
 
 ## MITRE ATT&CK Mapping
 
